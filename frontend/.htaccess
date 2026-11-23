@@ -1,0 +1,47 @@
+# Makueni Pamoja Funeral Home: cPanel / Apache settings
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Force HTTPS (remove these three lines if the host has no SSL yet)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Keep old WordPress links working so Google rankings are not lost.
+RewriteRule ^about-us/?$ /about.html [R=301,L]
+RewriteRule ^our-history/?$ /about.html#history [R=301,L]
+RewriteRule ^our-services/?$ /services.html [R=301,L]
+RewriteRule ^our-services/preservation-services/?$ /services.html#mortuary [R=301,L]
+RewriteRule ^preservation-services/?$ /services.html#mortuary [R=301,L]
+RewriteRule ^storage-facilities/?$ /services.html#mortuary [R=301,L]
+RewriteRule ^our-services/international-repatriation/?$ /services.html#repatriation [R=301,L]
+RewriteRule ^international-repatriation/?$ /services.html#repatriation [R=301,L]
+RewriteRule ^hearse-services/?$ /services.html#hearse [R=301,L]
+RewriteRule ^coffin-manufacturing/?$ /services.html#coffins [R=301,L]
+RewriteRule ^gallery/?$ /gallery.html [R=301,L]
+RewriteRule ^our-contacts/?$ /contact.html [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html "access plus 10 minutes"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>

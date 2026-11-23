@@ -1,0 +1,53 @@
+/* ============================================================
+   Services page — page-specific styles
+   Load AFTER css/styles.css
+   ============================================================ */
+
+/* ---------- SERVICE BLOCKS ---------- */
+.service-block{
+  padding-block:2.4rem;
+  border-bottom:1px solid var(--line);
+}
+.service-block:first-of-type{padding-top:0}
+.service-block:last-of-type{border-bottom:none;padding-bottom:0}
+
+.service-block .split{
+  align-items:center;
+}
+
+.service-block h2{
+  margin-top:0;
+}
+
+.service-block .tick{
+  margin-top:1.2rem;
+}
+
+/* Alternate image order on wide screens for a pleasant rhythm */
+@media (min-width:861px){
+  .service-block:nth-child(even) .split-media{order:-1}
+}
+
+/* ---------- IMAGES ---------- */
+.service-block .split-media img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:var(--r);
+  box-shadow:var(--shadow-lg);
+  transition:transform .5s var(--ease);
+}
+.service-block .split-media:hover img{
+  transform:translateY(-4px);
+}
+
+/* ---------- BOTTOM ACTIONS ---------- */
+.service-block + .actions{
+  margin-top:2.6rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .service-block{padding-block:1.8rem}
+  .service-block:nth-child(even) .split-media{order:0}
+}
