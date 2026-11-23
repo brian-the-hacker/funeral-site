@@ -1,0 +1,70 @@
+# ── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ── Virtual environments ───────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+
+# ── Environment / secrets ──────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# ── Databases / local data ─────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+backend/site.db
+backend/*.db
+
+# ── Cloudinary / uploads (if downloaded locally) ───────
+backend/uploads/
+backend/media/
+backend/cloudinary_cache/
+
+# ── Logs ───────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS junk ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ───────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Node (if ever added) ───────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Test / coverage ────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ── Misc ───────────────────────────────────────────────
+*.tmp
+*.bak
