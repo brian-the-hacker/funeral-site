@@ -79,4 +79,3 @@ All photos and videos from the old WordPress site are now in `frontend/img/` (vi
 `frontend/img/video/`, compressed to 720p). `js/config.js` points to them, so the site no longer
 depends on the old WordPress server. The gallery shows these files until the backend is live;
 once it is, the Cloudinary migration (section 3) is optional.
-# funeral-site
